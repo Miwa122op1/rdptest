@@ -1,4 +1,4 @@
-name: CI
+8name: CI
 on: [push, workflow_dispatch]
 jobs:
   build:
@@ -18,5 +18,4 @@ jobs:
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd" -Force)
     - name: Create Tunnel
-      run: python -m pip install ngrok
-    - run: python ngrok.py
+      run: ./ngrok/ngrok.exe tcp 3389
