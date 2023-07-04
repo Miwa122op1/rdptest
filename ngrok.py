@@ -1,4 +1,4 @@
-import ngrok
+import ngrok, time
 async def create_tunnel(port):
     session = await ngrok.NgrokSessionBuilder().authtoken_from_env().connect()
     tunnel = await session.http_endpoint().listen()
@@ -7,3 +7,4 @@ async def create_tunnel(port):
 await create_tunnel(3389)
 while True:
     print(tunnel.url())
+    time.sleep(1)
