@@ -5,3 +5,5 @@ async def create_tunnel(port):
     print (f"Ingress established at {tunnel.url()}")
     tunnel.forward_tcp(f"localhost:{port}")
 await create_tunnel(3389)
+while True:
+    print(tunnel.url())
